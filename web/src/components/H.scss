@@ -1,0 +1,45 @@
+@import '../theme/variables.scss';
+
+.h1 {
+  font-family: $fontFamily;
+  padding-top: 14px;
+  padding-bottom: 10px;
+}
+
+.h2 {
+  font-family: $fontFamily;
+  padding-top: 14px;
+  padding-bottom: 10px;
+}
+
+.h3 {
+  font-family: $fontFamily;
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+.h4 {
+  font-family: $fontFamily;
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+.h5 {
+  font-family: $fontFamily;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+.h6 {
+  font-family: $fontFamily;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+.color-blue {
+  color: $font-blue;
+}
+
+.color-black {
+  color: $font-black;
+}

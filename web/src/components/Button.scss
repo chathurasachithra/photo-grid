@@ -1,0 +1,114 @@
+@import '../theme/variables.scss';
+
+@mixin common-button-color-mixin($color) {
+  background: $color;
+  &:focus,
+  &:hover {
+    background: darken($color, 10%);
+  }
+  &.button-outline {
+    background: darken($color, 45%);
+    color: $color;
+    padding: 5px 12px 3.5px 12px;
+    font-weight: 400;
+    &.button-yellow {
+      background-color: darken($color, 30%);
+      color: darken($color, 18%);
+    }
+  }
+}
+
+.common-button {
+  font-family: $fontFamily;
+  padding: 13px 24px;
+  border: none;
+  background: $button-blue;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 2px;
+  font-size: 16px;
+  &:focus,
+  &:hover {
+    outline: none;
+    background: darken($button-blue, 10%);
+  }
+}
+
+.button-blue {
+  @include common-button-color-mixin($button-blue);
+}
+
+.button-red {
+  @include common-button-color-mixin($main-red);
+}
+
+.button-green {
+  @include common-button-color-mixin($main-green);
+}
+
+.button-black {
+  @include common-button-color-mixin($button-font-black);
+}
+
+.button-radius {
+  border-radius: 4px;
+}
+
+.button-rounded {
+  border-radius: 30px;
+}
+
+.button-sliced {
+  border-radius: 0 0 4px 4px;
+}
+
+.button-small {
+  padding: 4px 14px;
+  font-size: 8px;
+  border-radius: 2px;
+}
+
+.button-only-outline-blue {
+  border: 2px solid $button-blue;
+  color: $button-blue;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  @include common-button-color-mixin($white);
+}
+
+.button-only-outline-red {
+  border: 2px solid $main-red;
+  color: $main-red;
+  border-radius: 4px;
+  background-color: #ffffff;
+  @include common-button-color-mixin($white);
+}
+
+.button-only-outline-green {
+  border: 2px solid $main-green;
+  color: $main-green;
+  border-radius: 4px;
+  background-color: #ffffff;
+  @include common-button-color-mixin($white);
+}
+
+.button-only-outline-black {
+  border: 2px solid $black;
+  color: $black;
+  border-radius: 4px;
+  background-color: #ffffff;
+  @include common-button-color-mixin($white);
+}
+
+.button-font-black {
+  color: $button-font-black;
+}
+
+.button-bold {
+  font-weight: bold;
+}
+
+.button-full {
+  width: 100%;
+}

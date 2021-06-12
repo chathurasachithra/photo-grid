@@ -1,0 +1,51 @@
+@import './variables.scss';
+
+body {
+  font-family: $fontFamily !important;
+  background-color: #ffffff !important;
+  font-size: 14px !important;
+}
+
+.main-font-color {
+  color: $black !important;
+  font-family: $fontFamily !important;
+}
+
+button {
+  font-weight: bold !important;
+}
+
+.img-avatar {
+  background-color: #ffffff;
+  border: 1px solid;
+}
+
+.dropdown-item {
+  display: block !important;
+  width: 100% !important;
+  padding: 8px 1.5rem !important;
+  clear: both !important;
+  font-weight: 400 !important;
+  color: #212529 !important;
+  text-align: inherit !important;
+  white-space: nowrap !important;
+  background-color: transparent !important;
+  border: 0 !important;
+}
+
+.dropdown-menu {
+  font-size: 1rem !important;
+}
+
+.dropdown-menu {
+  padding: 0 !important;
+}
+
+.dropdown-divider {
+  margin: 0 !important;
+}
+
+.ui.star.rating .icon:focus {
+  border: none !important;
+  outline: none !important;
+}

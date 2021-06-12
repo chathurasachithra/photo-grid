@@ -1,0 +1,74 @@
+@import '../../theme/variables.scss';
+
+.font-common {
+  color: $font-black;
+  font-family: $fontFamily;
+}
+
+.font-white {
+  color: $white;
+  font-family: $fontFamily;
+}
+
+.drop-down-menu {
+  right: 0 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.home-aside {
+  margin-right: 0 !important;
+}
+
+.default-nav-brand {
+  @media (max-width: 767px) {
+    position: relative !important;
+    margin-left: 0 !important;
+    left: 0 !important;
+  }
+}
+
+.aside-icon {
+  color: $black;
+}
+
+.home-header {
+  min-height: 80px;
+  z-index: 1000 !important;
+  position: relative !important;
+  border: none !important;
+  font-size: 14px;
+  background-color: #34363a !important;
+  .home-nav-brand {
+    width: auto;
+    margin-top: 5px;
+    @media (max-width: 992px) {
+      position: relative;
+      margin-left: 0;
+      left: 0;
+    }
+  }
+}
+
+.default-header {
+  min-height: 70px;
+  z-index: 1000 !important;
+}
+
+.home-header-body {
+  margin-top: 0px !important;
+  overflow: hidden;
+}
+
+.default-header-body {
+  margin-top: 70px !important;
+  @media (max-width: 767px) {
+    margin-top: 0px !important;
+  }
+}
+
+.icon-list {
+  color: white !important;
+}

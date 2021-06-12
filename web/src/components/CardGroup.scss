@@ -1,0 +1,109 @@
+@import '../theme/variables.scss';
+
+.card-time {
+  position: absolute;
+  top: 143px;
+  right: 5px;
+  font-family: $fontFamily;
+  font-weight: bold;
+  font-size: 10px;
+  min-width: 130px;
+  width: auto !important;
+  p {
+    font-size: 11px;
+    margin-left: auto !important;
+  }
+}
+
+.card-time-mobile {
+  position: absolute;
+  top: 210px;
+  right: 10px;
+  font-family: $fontFamily;
+  font-weight: bold;
+  font-size: 10px;
+  min-width: 130px;
+  width: auto !important;
+  p {
+    font-size: 11px;
+    margin-left: auto !important;
+  }
+}
+
+.card-content-image {
+  width: 100%;
+  height: 180px !important;
+  img {
+    width: 100%;
+    height: 180px !important;
+    object-fit: cover;
+  }
+}
+
+.card-content-image-mobile {
+  width: 100%;
+  height: 250px !important;
+  img {
+    width: 100%;
+    height: 250px !important;
+    object-fit: cover;
+  }
+}
+
+.featured-image {
+  position: absolute;
+  width: 35px;
+  top: -10px;
+  right: -15px;
+  z-index: 1000;
+}
+
+.featured-image-mobile {
+  position: absolute;
+  width: 35px;
+  top: 3px;
+  right: 5px;
+  z-index: 1000;
+}
+
+.star-image {
+  position: absolute;
+  right: 5px;
+  bottom: 6px;
+}
+
+.card-content {
+  transition: grid-row-start 400ms linear;
+  transition: transform 400ms ease;
+  transition: all 0.5s ease;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.card-header-text {
+  font-size: 1.2em !important;
+  width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+  a {
+    color: $black !important;
+  }
+}
+
+$featureLineHeight: 24.45px;
+
+.card-sub-title {
+  height: $featureLineHeight * 2;
+  overflow: hidden;
+  box-sizing: content-box;
+  max-height: $featureLineHeight * 2;
+  margin-bottom: 10px;
+  line-height: $featureLineHeight;
+  font-size: 12px;
+}
+
+.card-content:hover {
+  transform: scale(1.02);
+}

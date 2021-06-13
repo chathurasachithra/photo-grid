@@ -1,0 +1,15 @@
+@import '../theme/variables.scss';
+
+.p {
+  font-family: $fontFamily;
+  font-weight: 300;
+  color: $font-black;
+}
+
+.p-small {
+  font-size: 10px;
+}
+
+.p-medium {
+  font-size: 12px;
+}

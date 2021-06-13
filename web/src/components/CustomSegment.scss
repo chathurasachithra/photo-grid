@@ -1,0 +1,26 @@
+@import '../theme/variables.scss';
+
+.custom-segment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;
+  .segment-heading {
+    color: $font-black;
+    font-family: $fontFamily;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    margin: 5px 0;
+  }
+}
+
+.segment-children {
+  padding: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+  .custom-segment {
+    flex-direction: column !important;
+  }
+}

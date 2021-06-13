@@ -1,0 +1,15 @@
+@import './variables';
+
+@mixin font-style(
+  $font-size: 16px,
+  $color: $info,
+  $font-weight: 100,
+  $font-style: normal
+) {
+  //when a defualt argument is given the parameter is optional
+  font-family: $fontFamily;
+  font-size: $font-size;
+  color: $color;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}

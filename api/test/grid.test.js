@@ -7,7 +7,7 @@ const PhotoService = require('../services/PhotoService');
 describe('Test DB setup', () => {
     const db = mongoose.connection;
     const connectWithRetry = () => {
-        mongoose.connect('mongodb://localhost:27017/photo-grid-test', { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+        mongoose.connect('mongodb://mongoc:27017/photo-grid-test', { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
     };
     db.once('open', () => {
         for (var collection in mongoose.connection.collections) {

@@ -32,7 +32,6 @@
     "moment": "^2.23.0",
     "mongoose": "^5.3.16",
     "morgan": "~1.9.0",
-    "node-sass-middleware": "0.11.0",
     "nodemon": "^1.18.9",
     "simple-node-logger": "^18.12.24"
   },

@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const sassMiddleware = require('node-sass-middleware');
 const mongoose = require('mongoose');
 const config = require('config');
 const cors = require('cors');
@@ -12,16 +11,12 @@ const v1Router = require('./routes/v1');
 const app = express();
 
 app.use(cors());
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(sassMiddleware({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  indentedSyntax: true,
-  sourceMap: true,
-}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes

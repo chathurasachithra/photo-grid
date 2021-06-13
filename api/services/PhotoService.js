@@ -1,3 +1,6 @@
+const baseJoi = require('joi');
+const extension = require('joi-date-extensions');
+const Joi = baseJoi.extend(extension);
 const GridModel = require('../models/GridModel');
 
 const PhotoService = {
@@ -10,7 +13,21 @@ const PhotoService = {
    * @returns array
    */
   save: async (request, userId) => {
-
+    
+    const validateSchema = Joi.object().keys({
+      images: Joi.array().required().min(9).max(9).items(
+        Joi.object().keys({
+          id: Joi.string().required(),
+          url: Joi.string().required()
+        })
+      )
+    });
+    const validation = Joi.validate(request, validateSchema);
+    if (validation.error) {
+      let errorMessage = validation.error.details.shift();
+      errorMessage = errorMessage.message;
+      throw errorMessage;
+    }
     const grid = {
       title: 'My photo grid',
       user: userId,
@@ -33,8 +50,8 @@ const PhotoService = {
   getGridByUser: async (userId) => {
 
     const grid = await GridModel.findOne({ user: userId }).lean();
-    return grid.images;
-  },
+    return (grid && grid.images) ? grid.images : [];
+  }
 };
 
 module.exports = PhotoService;

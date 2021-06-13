@@ -32,15 +32,6 @@ const PhotoController = {
    saveSelectedImages: async (request, response) => {
     try {
       const userId = request.user.id; 
-      const validateSchema = Joi.object().keys({
-        images: Joi.array().required(),
-      });
-      const validation = Joi.validate(request.body, validateSchema);
-      if (validation.error) {
-        let errorMessage = validation.error.details.shift();
-        errorMessage = errorMessage.message;
-        throw new Error(errorMessage);
-      }
       const result = await PhotoService.save(request.body, userId);
       ResponseService.success(response, result);
     } catch (error) {

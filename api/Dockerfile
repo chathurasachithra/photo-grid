@@ -1,8 +1,8 @@
-FROM node:12.18.3
+FROM node:12.12.0
 
 LABEL version="1.0"
 
-WORKDIR /app
+WORKDIR /home/node/api
 
 COPY package*.json ./
 

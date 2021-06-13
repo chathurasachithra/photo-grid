@@ -9,15 +9,16 @@ services:
   api:
     container_name: api_container
     image: 'node:12.12.0'
+    build: .
     depends_on:
       - mongoc
     user: "node"
-    working_dir: /home/node/api
     environment:
       - NODE_ENV=development
       - PORT=3000
     volumes:
-      - ./:/home/node/api
+      - .:/home/node/api/
+      - /home/node/api/node_modules
     ports:
       - '60:3000'
     tty: true
@@ -25,14 +26,15 @@ services:
 
   web:
     container_name: web_container
-    image: 'node:12.12.0'
+    image: 'node:12.18.0'
     user: "node"
-    working_dir: /home/node/web
+    build: ../web/
     environment:
       - NODE_ENV=development
       - PORT=3000
     volumes:
-      - ../web/:/home/node/web
+      - ../web:/home/node/web/
+      - /home/node/web/node_modules
     ports:
       - '61:3000'
     tty: true

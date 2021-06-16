@@ -22,6 +22,11 @@ docker-compose up -d
 
 - Navigate to `http://localhost:61`
 
+## API Documentation
+
+Documentation has prepared using swagger. Please access the swaggerhub using the url given below.
+https://app.swaggerhub.com/apis/chathurasachithra/photo-grid/1.0.0#/
+
 ## Tests
 
 API application covered with unit tests using `Mocha` & `Chai`. To run the tests please used below command.

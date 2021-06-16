@@ -1,10 +1,8 @@
-const baseJoi = require('joi');
-const extension = require('joi-date-extensions');
-const Joi = baseJoi.extend(extension);
 const ResponseService = require('../../services/ResponseService');
-const PhotoService = require('../../services/PhotoService');
+const GridService = require('../../services/GridService');
 const photoJson = require('../../resources/CHhASmTpKjaHyAsSaauThRqMMjWanYkQ.json');
 const log = require('simple-node-logger').createSimpleLogger();
+const _ = require('lodash');
 
 const PhotoController = {
 
@@ -15,8 +13,14 @@ const PhotoController = {
    * @param {*} response 
    */
   getUploadedPhotos: async (request, response) => {
+
     try {
-      ResponseService.success(response, photoJson);
+      const hostname = request.headers.host;
+      const imageList = _.cloneDeep(photoJson.entries).map(photoObject => {
+        photoObject.picture = `http://${hostname}/images/${photoObject.picture}`;
+        return photoObject;
+      });
+      ResponseService.success(response, imageList);
     } catch (error) {
       log.error('PhotoController getUploadedPhotos error ', error);
       ResponseService.error(response, error.message);
@@ -29,13 +33,32 @@ const PhotoController = {
    * @param {*} request 
    * @param {*} response 
    */
-   saveSelectedImages: async (request, response) => {
+   saveGrid: async (request, response) => {
+
     try {
       const userId = request.user.id; 
-      const result = await PhotoService.save(request.body, userId);
+      const result = await GridService.save(request.body, userId);
       ResponseService.success(response, result);
     } catch (error) {
-      log.error('PhotoController saveSelectedImages error ', error);
+      log.error('PhotoController saveGrid error ', error);
+      ResponseService.error(response, error);
+    }
+  },
+
+  /**
+   * Update image order or update grid by new images of a grid
+   * 
+   * @param {*} request 
+   * @param {*} response 
+   */
+   updateGrid: async (request, response) => {
+
+    try {
+      const userId = request.user.id; 
+      const result = await GridService.update(request.body, userId);
+      ResponseService.success(response, result);
+    } catch (error) {
+      log.error('PhotoController updateGrid error ', error);
       ResponseService.error(response, error);
     }
   },
@@ -47,9 +70,10 @@ const PhotoController = {
    * @param {*} response 
    */
   getGrid: async (request, response) => {
+    
     try {
       const userId = request.user.id; 
-      const result = await PhotoService.getGridByUser(userId);
+      const result = await GridService.getGridByUser(userId);
       ResponseService.success(response, result);
     } catch (error) {
       log.error('PhotoController getGrid error ', error);

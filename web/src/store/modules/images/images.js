@@ -17,7 +17,7 @@ export const getImages = req => {
         url: `/images`,
         params: req,
       });
-      const data = response?.data?.data?.entries || {};
+      const data = response?.data?.data || {};
       dispatch({ type: SET_IMAGES, payload: data });
       dispatch({ type: GET_IMAGES_LOADING, payload: false });
       return data;
